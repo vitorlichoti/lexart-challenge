@@ -3,7 +3,7 @@ version: "3"
 services:
   node:
     build: .
-    container_name: blogs_api
+    container_name: lexart-challenge
     tty: true
     stdin_open: true
     command: bash
