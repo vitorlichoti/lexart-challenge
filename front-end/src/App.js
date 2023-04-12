@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import HomeNavBar from "./components/HomeNavBar";
 import ProductCards from "./components/products/ProductCards";
-import axios from 'axios';
+import productsMeliApi from "./utils/fetch";
 
 function App() {
   const [categorie, setCategorie] = useState('');
@@ -11,8 +11,7 @@ function App() {
   const resultSearch = async (category, text) => {
     console.log(category, text)
     try {
-      const fetchApi = await axios.get(`http://localhost:3002/search?category=${category}&text=${text}`);
-      // console.log(fetchApi);
+      const fetchApi = await productsMeliApi('GET', `http://localhost:3002/search?category=${category}&text=${text}`);
       setProducts(fetchApi.data);
     } catch (error) {
       console.log(error.message)
