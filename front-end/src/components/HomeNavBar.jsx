@@ -8,20 +8,19 @@ import SearchBar from './filters/SearchBar';
 
 function HomeNavBar({ categorie, search }) {
   return (
-    <Navbar bg="light" expand="lg" fixed='top'>
+    <Navbar bg="light" expand="md">
       <Container>
-        <Nav
-          className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-          navbarScroll
-        >
-          <WebDropDown />
-          <CategoriesDropDown select={categorie} />
-        </Nav>
-        <SearchBar result={search} />
+        <Navbar.Brand href="/">Lexart Challenge</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <WebDropDown select={categorie} />
+            <CategoriesDropDown select={categorie} />
+          </Nav>
+          <SearchBar result={search} />
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   )
 }
-
 export default HomeNavBar;

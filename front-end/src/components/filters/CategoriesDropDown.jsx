@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function CategoriesDropDown({ select }) {
   const [selector, setSelector] = useState('Categorias');
 
   const handleOptions = (eventKey) => {
+    if (eventKey === 'Categorias') {
+      setSelector('Categorias')
+    }
     setSelector(eventKey)
     select(eventKey)
   }
 
   return (
-    <Dropdown className="d-inline mx-2" onSelect={handleOptions}>
-      <Dropdown.Toggle id="dropdown-autoclose-true" style={{ minWidth: '100px' }}>
-        {selector}
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item eventKey="Geladeira">Geladeira</Dropdown.Item>
-        <Dropdown.Item eventKey="TV">TV</Dropdown.Item>
-        <Dropdown.Item eventKey="Celular">Celular</Dropdown.Item>
-        <Dropdown.Item eventKey="">Limpar Filtro</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    <NavDropdown title={selector} id="basic-nav-dropdown" onSelect={handleOptions}>
+      <NavDropdown.Item eventKey="Geladeira">Geladeira</NavDropdown.Item>
+      <NavDropdown.Item eventKey="TV">TV</NavDropdown.Item>
+      <NavDropdown.Item eventKey="Celular">Celular</NavDropdown.Item>
+      <NavDropdown.Item eventKey="Todas Categorias">Todas Categorias</NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item eventKey="Categorias">Limpar Fitros</NavDropdown.Item>
+    </NavDropdown>
   )
 }
 

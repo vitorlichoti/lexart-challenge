@@ -10,6 +10,9 @@ function App() {
 
   const resultSearch = async (category, text) => {
     try {
+      if (category === 'Limpar Tela') {
+        return setProducts([])
+      }
       const fetchApi = await productsMeliApi(`search?category=${category}&text=${text}`);
       setProducts(fetchApi.data);
     } catch (error) {
