@@ -11,8 +11,9 @@ function App() {
   const resultSearch = async (category, text) => {
     console.log(category, text)
     try {
-      const fetchApi = await productsMeliApi('GET', `http://localhost:3002/search?category=${category}&text=${text}`);
-      setProducts(fetchApi.data);
+      // const fetchApi = await axios.get(`http://localhost:3002/search?category=${category}&text=${text}`);
+      const fetchApi = await productsMeliApi('GET', `search?category=${category}&text=${text}`);
+      setProducts(fetchApi.results);
     } catch (error) {
       console.log(error.message)
     }
