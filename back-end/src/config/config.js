@@ -1,11 +1,11 @@
 require('dotenv').config();
 
 const options = {
-  host: process.env.MYSQL_HOST || 'localhost',
-  port: process.env.MYSQL_PORT || '3306',
-  database: process.env.MYSQL_DB_NAME || 'lexart-challenge',
-  username: process.env.MYSQL_USER || 'root',
-  password: process.env.MYSQL_PASSWORD || 'password',
+  host: process.env.MYSQLHOST || 'localhost',
+  port: process.env.MYSQLPORT || '3306',
+  database: process.env.MYSQLDATABASE || 'lexart-challenge',
+  username: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || 'password',
   dialect: 'mysql',
   dialectOptions: {
     timezone: 'Z',
