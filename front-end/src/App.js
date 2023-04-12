@@ -11,8 +11,7 @@ function App() {
   const resultSearch = async (category, text) => {
     try {
       const fetchApi = await productsMeliApi(`search?category=${category}&text=${text}`);
-      console.log(fetchApi, fetchApi.results, fetchApi.data);
-      setProducts(fetchApi.results);
+      setProducts(fetchApi.data);
     } catch (error) {
       console.log(error.message)
     }
