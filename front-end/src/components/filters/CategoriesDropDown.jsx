@@ -19,6 +19,7 @@ function CategoriesDropDown({ select }) {
         <Dropdown.Item eventKey="Geladeira">Geladeira</Dropdown.Item>
         <Dropdown.Item eventKey="TV">TV</Dropdown.Item>
         <Dropdown.Item eventKey="Celular">Celular</Dropdown.Item>
+        <Dropdown.Item eventKey="">Limpar Filtro</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
