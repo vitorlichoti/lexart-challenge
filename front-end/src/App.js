@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import HomeNavBar from "./components/HomeNavBar";
 import ProductCards from "./components/products/ProductCards";
+import axios from 'axios';
 
 function App() {
   const [categorie, setCategorie] = useState('');
   const [searchText, setSearchText] = useState('');
   const [products, setProducts] = useState([]);
 
-  const resultSearch = async (text) => {
-    const fetchApi = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${text}`);
-    const response = await fetchApi.json();
-    setProducts(response.results);
+  const resultSearch = async (category, text) => {
+    console.log(category, text)
+    try {
+      const fetchApi = await axios.get(`http://localhost:3002/search?category=${category}&text=${text}`);
+      // console.log(fetchApi);
+      setProducts(fetchApi.data);
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   useEffect(() => {
-    const searchParam = categorie + " " + searchText
-    resultSearch(searchParam);
+    resultSearch(categorie, searchText);
   }, [categorie, searchText]);
 
   return (

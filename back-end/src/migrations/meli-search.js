@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       category: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       textSearch: {
-        allowNull: true,
+        allowNull: false,
+        field: 'text_search',
         type: Sequelize.STRING
       },
       results: {
