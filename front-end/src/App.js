@@ -9,10 +9,9 @@ function App() {
   const [products, setProducts] = useState([]);
 
   const resultSearch = async (category, text) => {
-    console.log(category, text)
     try {
-      // const fetchApi = await axios.get(`http://localhost:3002/search?category=${category}&text=${text}`);
-      const fetchApi = await productsMeliApi('GET', `search?category=${category}&text=${text}`);
+      const fetchApi = await productsMeliApi(`search?category=${category}&text=${text}`);
+      console.log(fetchApi, fetchApi.results, fetchApi.data);
       setProducts(fetchApi.results);
     } catch (error) {
       console.log(error.message)
