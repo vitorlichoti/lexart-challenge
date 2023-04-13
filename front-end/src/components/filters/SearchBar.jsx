@@ -24,7 +24,7 @@ function SearchBar({ result }) {
         value={text}
         onChange={({ target }) => setText(target.value)}
       />
-      <Button variant="outline-success" type='submit'>Search</Button>
+      <Button variant="secondary" type='submit'>Search</Button>
     </Form>
   )
 }
